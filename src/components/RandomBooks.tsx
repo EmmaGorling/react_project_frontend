@@ -1,27 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import { BASE_URL, QUERY_PARAMS } from '../../config.ts';
+import React, { useEffect, useState } from 'react';
+import { BookInterface } from '../types/BookInterface';
+import BookItem from './BookItem';
+// import { BOOKS_URL, QUERY_PARAMS } from '../../config.ts';
 const apiKey = import.meta.env.VITE_API_KEY; 
 
 // During dev
 import exampleData from '../../example.json';
 
-interface Book {
-    id: string,
-    volumeInfo: {
-        title: string,
-        subtitle?: string,
-        authors: string[],
-        description: string,
-        imageLinks: {
-            thumbnail: string
-        }
-    }
-}
-
 const RandomBooks = () => {
 
-    const [books, setBooks] = useState<Book[]>([]);
+    const [books, setBooks] = useState<BookInterface[]>([]);
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
         getBooks();
@@ -29,28 +19,28 @@ const RandomBooks = () => {
 
     const getBooks = async () => {
         try {
-            /*const res = await fetch(`${BASE_URL}?q=subject:fiction&orderby=relevance&key=${apiKey}&fields=${QUERY_PARAMS.fields}`)
+            setLoading(true);
+            /*const res = await fetch(`${BOOKS_URL}?q=subject:fiction&orderby=relevance&key=${apiKey}&fields=${QUERY_PARAMS.fields}`)
             const data = await res.json();
             setBooks(data.items);*/
             setBooks(exampleData);
+            
         } catch (error) {
             setError("Något gick fel");
+        } finally {
+            setLoading(false);
         }
     }
     return (
         <div>
             <h1>Random</h1>
-            <ul>
+            <section>
                 {
                     books.map((book) => (
-                        <li key={book.id}>
-                            <img src={book.volumeInfo.imageLinks.thumbnail} alt="" />
-                            <h4>{book.volumeInfo.title}</h4>
-                        </li>
+                        <BookItem book={book} />
                     ))
                 }
-                
-            </ul>
+            </section>
         </div>
     )
 }
