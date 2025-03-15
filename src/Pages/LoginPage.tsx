@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 
@@ -63,6 +64,7 @@ const LoginPage = () => {
                 <div>
                     <button type="submit">Logga in</button>
                 </div>
+                <p>Har du inget konto? <Link to="/register">Registrera dig!</Link></p>
             </form>
         </div>
     )
