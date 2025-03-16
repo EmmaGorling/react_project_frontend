@@ -1,14 +1,19 @@
 import React from 'react'
+import { NO_THUMBNAIL } from '../../config';
 import { BookInterface } from '../types/BookInterface'
+import { Link } from 'react-router-dom';
 
 const BookItem = ({book} : {book : BookInterface}) => {
+    const thumbnail = book.volumeInfo.imageLinks?.thumbnail || NO_THUMBNAIL;
+    const authors = book.volumeInfo.authors || ["Okänd författare"];
+
     return (
-        <a key={book.id} href="">
+        <Link to={`/book/${book.id}`} key={book.id}>
             <article>
-                <img src={book.volumeInfo.imageLinks.thumbnail} alt={book.volumeInfo.title} title={book.volumeInfo.title} />
+                <img src={thumbnail} alt={book.volumeInfo.title} title={book.volumeInfo.title} />
                 <h4>{book.volumeInfo.title}</h4>
                 <p>
-                {book.volumeInfo.authors.map((author, index, authors) => (
+                {authors.map((author, index, authors) => (
                     <span key={author}>
                     {author}
                     {index < authors.length - 1 && ", "}
@@ -17,7 +22,7 @@ const BookItem = ({book} : {book : BookInterface}) => {
                 </p>
                 <span></span>
             </article>
-        </a>
+        </Link>
     )
 }
 

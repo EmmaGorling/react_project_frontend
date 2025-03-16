@@ -6,6 +6,7 @@ import LoginPage from "./Pages/LoginPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ProfilePage from "./Pages/ProfilePage";
 import RegisterPage from "./Pages/RegisterPage";
+import BookDetailPage from "./Pages/BookDetailPage";
 
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
             {
                 path: "/register",
                 element: <RegisterPage />
+            },
+            {
+                path: "/book/:id",
+                element: <BookDetailPage />
             },
             {
                 path: "/profile",

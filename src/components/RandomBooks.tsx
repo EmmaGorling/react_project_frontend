@@ -37,7 +37,7 @@ const RandomBooks = () => {
             <section>
                 {
                     books.map((book) => (
-                        <BookItem book={book} />
+                        <BookItem key={book.id} book={book} />
                     ))
                 }
             </section>

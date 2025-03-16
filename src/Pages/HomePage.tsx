@@ -1,8 +1,12 @@
-import React from 'react'
+import RandomBooks from "../components/RandomBooks"
+import SearchBooks from "../components/SearchBooks"
 
 const HomePage = () => {
     return (
-        <div>HomePage</div>
+        <div>
+            <SearchBooks />
+            <RandomBooks />
+        </div>
     )
 }
 
