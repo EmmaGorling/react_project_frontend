@@ -32,8 +32,13 @@ const BookDetailPage = () => {
         fetchBookDetails();
     }, [id]);
 
-    if (loading) return <p>Laddar...</p>;
-    if (error) return <p>{error}</p>;
+    const sanitizedDescription = book?.volumeInfo?.description
+        ? DOMPurify.sanitize(book.volumeInfo.description, {
+            ALLOWED_TAGS: ['b', 'i', 'em', 'strong', 'u', 'a', 'br'], // Allow specific tags
+            ALLOWED_ATTR: ['href'], // Only allow href for links
+        })
+        : "Ingen beskrivning tillgänglig";
+
 
     return (
         <div>
@@ -55,7 +60,7 @@ const BookDetailPage = () => {
                         <h3>Beskrivning</h3>
                         <p
                             dangerouslySetInnerHTML={{
-                                __html: DOMPurify.sanitize(book.volumeInfo?.description || "Ingen beskrivning tillgänglig")
+                                __html: sanitizedDescription,
                             }} 
                         />
                     </div>
