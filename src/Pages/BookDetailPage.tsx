@@ -3,9 +3,13 @@ import { Link, useParams } from 'react-router-dom';
 import  DOMPurify from 'dompurify';
 import { BOOKS_URL } from '../../config';
 import { BookInterface } from '../types/BookInterface';
+import { useAuth } from '../context/authContext';
+import ReviewForm from '../components/ReviewForm';
+import ReviewList from '../components/ReviewList';
 const apiKey = import.meta.env.VITE_API_KEY;
 
 const BookDetailPage = () => {
+    const { user } = useAuth();
     const { id } = useParams<{ id: string }>(); 
     const [book, setBook] = useState<BookInterface | null>(null);
     const [loading, setLoading] = useState(true);
@@ -67,6 +71,16 @@ const BookDetailPage = () => {
                 )
             }
             
+            {
+                user && id && (
+                    <div>
+                        <ReviewForm bookId={id} />
+                    </div>
+                )
+            }
+            {
+                id && <ReviewList bookId={id} />
+            }
         </div>
     )
 }
