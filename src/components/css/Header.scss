@@ -1,0 +1,41 @@
+@use '../../variables.scss';
+
+header {
+    background-color: variables.$dark-green;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em;
+        margin: 0;
+        list-style: none;
+        
+        img {
+            width: 100%;
+            max-width: 160px;
+        }
+
+        .menu-items  {
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-end;
+            padding: 1em;
+
+            li {
+                margin: auto 1em;
+            }
+        }
+    }
+}
+
+@media (min-width: 500px) {
+    header {
+        ul {
+            flex-direction: row;
+        }
+    }
+}

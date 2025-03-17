@@ -16,25 +16,25 @@ const BookDetailPage = () => {
     const [error, setError] = useState("");
 
     useEffect(() => {
-        const fetchBookDetails = async () => {
-            try {
-                const res = await fetch(`${BOOKS_URL}/${id}?key=${apiKey}`);
-                const data = await res.json();
-
-                if (data) {
-                    setBook(data);
-                } else {
-                    setError("Boken kunde inte hämtas");
-                }
-            } catch (err) {
-                setError("Något gick fel vid hämtning av boken");
-            } finally {
-                setLoading(false);
-            }
-        };
-
         fetchBookDetails();
     }, [id]);
+
+    const fetchBookDetails = async () => {
+        try {
+            const res = await fetch(`${BOOKS_URL}/${id}?key=${apiKey}`);
+            const data = await res.json();
+
+            if (data) {
+                setBook(data);
+            } else {
+                setError("Boken kunde inte hämtas");
+            }
+        } catch (err) {
+            setError("Något gick fel vid hämtning av boken");
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const sanitizedDescription = book?.volumeInfo?.description
         ? DOMPurify.sanitize(book.volumeInfo.description, {

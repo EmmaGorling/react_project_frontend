@@ -1,0 +1,44 @@
+@use '../../variables.scss';
+
+.welcome {
+    background-color: variables.$light-green;
+    padding: 2em 1em;
+
+    p {
+        width: 100%;
+        max-width: 60ch;
+    }
+    img {
+        width: 100%;
+        max-width: 250px;
+        border-radius: 10px;
+        margin: auto;
+    }
+
+    .text {
+        margin: auto;
+    }
+    .user-welcome {
+        text-align: center;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    
+}
+
+@media (min-width: 600px) {
+    .welcome {
+        .container {
+            flex-direction: row;
+        }
+        .text {
+            margin-right: 1em;
+        }
+    }
+    
+}

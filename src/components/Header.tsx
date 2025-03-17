@@ -1,5 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useAuth } from "../context/authContext";
+import logo from '../assets/logo.png'
+
+import './css/Header.scss';
 
 const Header = () => {
 
@@ -8,9 +11,11 @@ const Header = () => {
 
     return (
         <header>
+            
 
             <ul>
-                <li><NavLink to='/'>Startsida</NavLink></li>
+                <li><Link to="/"><img src={logo} alt="" /></Link></li>
+                <div className="menu-items">
                 {
                     user && <li><NavLink to='/profile'>Min sida</NavLink></li>
                 }
@@ -19,6 +24,7 @@ const Header = () => {
                         !user ? <NavLink to='/login'>Logga in</NavLink> : <button onClick={logout}>Logga ut</button>
                     }
                 </li>
+                </div>
             </ul>
         </header>
     )
