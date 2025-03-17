@@ -56,7 +56,7 @@ const RegisterPage = () => {
                 {
                     success && <div className='successMsg'><p>{success}</p></div>
                 }
-                <div>
+                <div className='form-section-left'>
                     <label htmlFor="email">E-post</label>
                     <input 
                         type="email"
@@ -67,7 +67,7 @@ const RegisterPage = () => {
                     />
                 </div>
 
-                <div>
+                <div className='form-section-left'>
                     <label htmlFor="firstName">Förnamn</label>
                     <input 
                         type="text"
@@ -78,7 +78,7 @@ const RegisterPage = () => {
                     />
                 </div>
 
-                <div>
+                <div className='form-section-left'>
                     <label htmlFor="lastName">Efternamn</label>
                     <input 
                         type="text"
@@ -89,7 +89,7 @@ const RegisterPage = () => {
                     />
                 </div>
 
-                <div>
+                <div className='form-section-left'>
                     <label htmlFor="password">Lösenord</label>
                     <input 
                         type="password"
@@ -99,10 +99,9 @@ const RegisterPage = () => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
-
-                <div>
-                    <button type="submit">Skapa konto</button>
-                </div>
+                
+                <button type="submit">Skapa konto</button>
+                
                 <p>Har du redan ett konto? <Link to="/login">Logga in!</Link></p>
             </form>
         </div>

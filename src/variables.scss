@@ -1,2 +1,10 @@
 $dark-green: #6f7e70;
 $light-green: #AAB99A;
+$error-bg: #da96b2;
+$error-border: #630949;
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}

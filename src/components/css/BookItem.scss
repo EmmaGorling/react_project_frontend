@@ -1,0 +1,20 @@
+.book-item {
+    margin: 1em 0.5em;
+
+    article {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 320px; 
+        width: 15ch;
+    }
+
+    img {
+        width: 100%;
+        height: 200px; 
+        object-fit: cover; 
+    }
+    p {
+        margin: 0;
+    }
+}

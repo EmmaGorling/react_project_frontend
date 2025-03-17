@@ -1,0 +1,24 @@
+@use '../../variables.scss';
+
+.search {
+
+    margin-top: 2em;
+    h2 {
+        text-align: center;
+    }
+}
+.result {
+
+    padding-top: 2em;
+
+    h3 {
+
+        text-align: center;
+    }
+
+    .result-flex {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}

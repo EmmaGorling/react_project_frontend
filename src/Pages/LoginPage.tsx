@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 
-
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -32,40 +31,42 @@ const LoginPage = () => {
     }
 
     return (
-        <div>
+        <div className="login-container">
             <h2>Logga in</h2>
 
-            <form onSubmit={handleSubmit}>
-                {
-                    error && <p>{error}</p>
-                }
-                <div>
-                    <label htmlFor="email">E-post</label>
-                    <input 
-                        type="email"
-                        id="email"
-                        required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </div>
+            <div className="login-form">
+                <form onSubmit={handleSubmit}>
+                    {
+                        error && <p>{error}</p>
+                    }
+                    <div className='form-section-left'>
+                        <label htmlFor="email">E-post</label>
+                        <input 
+                            type="email"
+                            id="email"
+                            required
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
 
-                <div>
-                    <label htmlFor="password">Lösenord</label>
-                    <input 
-                        type="password"
-                        id="password"
-                        required
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </div>
+                    <div className='form-section-left'>
+                        <label htmlFor="password">Lösenord</label>
+                        <input 
+                            type="password"
+                            id="password"
+                            required
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
 
-                <div>
                     <button type="submit">Logga in</button>
-                </div>
-                <p>Har du inget konto? <Link to="/register">Registrera dig!</Link></p>
-            </form>
+                    
+                    <p>Har du inget konto? <Link to="/register">Registrera dig!</Link></p>
+                </form>
+            
+            </div>
         </div>
     )
 }

@@ -5,6 +5,8 @@ import BookItem from './BookItem.tsx';
 import { BOOKS_URL, QUERY_PARAMS } from '../../config.ts';
 const apiKey = import.meta.env.VITE_API_KEY; 
 
+import './css/SearchBooks.scss'
+
 const SearchBooks = () => {
     const [query, setQuery] = useState("");
     const [books, setBooks] = useState<BookInterface[]>([]);
@@ -13,7 +15,7 @@ const SearchBooks = () => {
 
     const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if(!query.trim()) return    
+        if(!query.trim()) return;    
         
         setLoading(true);
         setError("");
@@ -38,31 +40,35 @@ const SearchBooks = () => {
     }
     
     return (
-        <div>
-            <h2>Sök efter böcker</h2>
-            <form onSubmit={handleSearch}>
-                <div>
-                    <label htmlFor="query">Sök efter titel eller författare</label>
-                    <input 
-                        type="text" 
-                        value={query}
-                        onChange = {(e) => setQuery(e.target.value)}
-                    />
-                </div>
-                <button type="submit" >Sök</button>
-            </form>
+        <div className='search'>
+            <div className='search-input'>
+                <h2>Hitta din bok</h2>
+                <form onSubmit={handleSearch}>
+                    <div className='form-section-center'>
+                        <label htmlFor="query">Sök efter titel eller författare</label>
+                        <input 
+                            type="text" 
+                            value={query}
+                            onChange = {(e) => setQuery(e.target.value)}
+                        />
+                    </div>
+                    <button type="submit" >Sök</button>
+                </form>
+            </div>
 
-            {loading && <p>Laddar...</p>}
-            {error && <p>{error}</p>}
+            {loading && <p className='loadingMsg'>Laddar...</p>}
+            {error && <p className='errorMsg'>{error}</p>}
 
             {
                 books.length > 0 && 
                 (
-                    <section>
+                    <section className='result'>
                         <h3>Sökresultat</h3>
+                        <div className='result-flex'>
                         {books.map((book) => (
                             <BookItem key={book.id} book={book} />
                         ))}
+                        </div>
                     </section>
                 ) 
             }
