@@ -1,0 +1,18 @@
+@use '../../variables.scss';
+
+.review-item {
+    border: 1px solid variables.$dark-green;
+    margin: 2em auto;
+    padding: 0.5em 1em;
+    h5 {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    .stars {
+        color: variables.$dark-green
+    }
+    .bottom {
+        display: flex;
+        justify-content: space-between;
+    }
+}

@@ -2,11 +2,12 @@
 @use './variables.scss';
 body {
   margin: 0;
-  min-height: 100vh;
+  
   width: 100vw;
   font-family: "Roboto", sans-serif;;
 }
 #root {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -24,6 +25,7 @@ a {
   text-decoration: none;
 }
 
+// Laddning
 .loadingMsg {
   font-size: 1.2rem;
   font-weight: bold;
@@ -33,6 +35,7 @@ a {
   width: fit-content;
 }
 
+// Felmeddelandem
 .errorMsg {
   padding: 1em;
   font-weight: bold;
@@ -43,6 +46,8 @@ a {
   border-radius: 5px;
 }
 
+
+// Formulär
 form {
   width: 100%;
   max-width: 30ch;
@@ -67,7 +72,7 @@ form {
 
   button {
     display: block;
-    margin: 2em auto;
+    margin: 1em auto;
   }
   p {
     width: fit-content;
@@ -81,3 +86,21 @@ form {
   }
 }
 
+// Ul for reviews
+.reviewlist {
+  list-style: none;
+  padding: 0;
+  width: 90%;
+  max-width: 50ch;
+  margin: auto;
+}
+
+// Footer
+footer {
+  background-color: variables.$dark-green;
+  padding: 1em;
+  text-align: center;
+  p {
+    font-weight: 500;
+  }
+}

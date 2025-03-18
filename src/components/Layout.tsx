@@ -9,7 +9,7 @@ const Layout = () => {
                 <Outlet />
             </main>
             <footer>
-                <p>Footer</p>
+                <p>PageTurner | Projektuppgift DT210G | Emma Ådahl Görling</p>
             </footer>
         </>
     )

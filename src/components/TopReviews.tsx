@@ -33,7 +33,7 @@ const TopReviews = () => {
             {error && <p>{error}</p>}
             {
                 Array.isArray(topReviews) ? (
-                    <ul>
+                    <ul className="reviewlist">
                         {topReviews.map((review) => (
                             <li  key={review._id}>
                                 <Link to={`/book/${review.bookId}`}>

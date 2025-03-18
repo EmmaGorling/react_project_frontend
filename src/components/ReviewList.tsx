@@ -36,7 +36,7 @@ const ReviewList = ({ bookId, refresh } : { bookId: string, refresh: boolean }) 
             {loading && <p>Laddar recensioner...</p>}
 
             {reviews?.length > 0 ? (
-                <ul>
+                <ul className="reviewlist">
                     {reviews.map((review) => (
                         <li key={review._id}>
                             <ReviewItem  review={review} />
