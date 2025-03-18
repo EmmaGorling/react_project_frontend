@@ -36,9 +36,7 @@ const TopReviews = () => {
                     <ul className="reviewlist">
                         {topReviews.map((review) => (
                             <li  key={review._id}>
-                                <Link to={`/book/${review.bookId}`}>
-                                    <ReviewItem review={review} />
-                                </Link>
+                                <ReviewItem review={review} />
                             </li>
                         ))}
                     </ul>
