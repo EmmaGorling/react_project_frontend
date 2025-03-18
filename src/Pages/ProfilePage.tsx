@@ -72,6 +72,27 @@ const ProfilePage = () => {
     }
   };
 
+  const handleDeleteReview = async (reviewId: string) => {
+    try {
+        const res = await fetch(`${apiUrl}/reviews/${reviewId}`, {
+            method: "DELETE",
+            credentials: "include", // om du använder cookies för autentisering
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        if (!res.ok) {
+            throw new Error("Något gick fel vid radering av recensionen");
+        }
+
+        // Ta bort recensionen från lokalt tillstånd
+        setReviews(reviews.filter((review) => review._id !== reviewId));
+    } catch (error) {
+        setError("Något gick fel vid radering av recensionen");
+    }
+  };
+
   const handleCancelEdit = () => {
     setEditingReviewId(null);
   };
@@ -86,7 +107,13 @@ const ProfilePage = () => {
       </section>
 
       <h3>Dina recensioner</h3>
-      <ul>
+      {
+        error && <p className="errorMsg">{error}</p>
+      }
+      {
+        loading && <p className="loadingMsg">Laddar...</p>
+      }
+      <ul className="reviewlist">
         {reviews.length > 0 ? (
           reviews.map((review) => (
             <li key={review._id}>
@@ -118,7 +145,11 @@ const ProfilePage = () => {
 
               {/* Redigeringsknapp */}
               {user?._id === review.user._id && !editingReviewId && (
-                <button onClick={() => handleEditClick(review)}>Redigera</button>
+                <>
+                  <button onClick={() => handleEditClick(review)}>Redigera</button>
+                  <button onClick={() => handleDeleteReview(review._id)}>Radera</button>
+                </>
+                
               )}
             </li>
           ))
