@@ -2,12 +2,9 @@ import { ReviewInterface } from "../types/ReviewInterface"
 import LikeDislikeButtons from "./LikeDislikeButtons"
 import { useAuth } from "../context/authContext"
 
-const apiUrl = import.meta.env.VITE_API_URL;
 
 export const ReviewItem = ({ review }: { review: ReviewInterface }) => {
     const { user } = useAuth();
-
-    
 
     return (
         <>
@@ -40,16 +37,6 @@ export const ReviewItem = ({ review }: { review: ReviewInterface }) => {
                 userHasLiked={user ? review.likes?.includes(user._id) : false}
                 userHasDisliked={user ? review.dislikes?.includes(user._id) : false}
             />
-            <div>
-                {
-                    user?._id == review.user._id && (
-                        <>
-                            <button>Redigera</button>
-                            <button>Radera</button>
-                        </>
-                    )
-                }
-            </div>
         </>
     )
 }
