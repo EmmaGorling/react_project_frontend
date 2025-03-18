@@ -117,7 +117,7 @@ const ProfilePage = () => {
               </li>
             ))
           ) : (
-            <p>Du har inga recensioner ännu</p>
+            <p className="successMsg">Du har inga recensioner ännu</p>
           )}
         </ul>
       </div>
