@@ -44,7 +44,7 @@ const ReviewList = ({ bookId, refresh } : { bookId: string, refresh: boolean }) 
                     ))}
                 </ul>
             ) : (
-                <p>Det finns inga recensioner för den här boken ännu.</p>
+                <p className="successMsg">Det finns inga recensioner för den här boken ännu.</p>
             )}
         </div>
     )
