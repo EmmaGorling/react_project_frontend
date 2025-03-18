@@ -3,6 +3,8 @@ import { useAuth } from "../context/authContext";
 import { ReviewInterface } from "../types/ReviewInterface";
 import { ReviewItem } from "../components/ReviewItem";
 
+import './css/ProfilePage.scss';
+
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const ProfilePage = () => {
@@ -100,63 +102,68 @@ const ProfilePage = () => {
   return (
     <div>
       <h1>Min profil</h1>
-      <section>
+      <section className="profileinfo">
         <p><strong>Förnamn: </strong>{user?.firstName}</p>
         <p><strong>Efternamn: </strong>{user?.lastName}</p>
         <p><strong>E-post: </strong>{user?.email}</p>
       </section>
 
-      <h3>Dina recensioner</h3>
-      {
-        error && <p className="errorMsg">{error}</p>
-      }
-      {
-        loading && <p className="loadingMsg">Laddar...</p>
-      }
-      <ul className="reviewlist">
-        {reviews.length > 0 ? (
-          reviews.map((review) => (
-            <li key={review._id}>
-              {/* Om vi är i redigeringsläge för den här recensionen, visa redigeringsformuläret */}
-              {editingReviewId === review._id ? (
-                <div className="edit-form">
-                  <h4>Redigera recension</h4>
-                  <textarea
-                    value={newReviewText}
-                    onChange={(e) => setNewReviewText(e.target.value)}
-                  />
-                  <div>
-                    <label>Betyg</label>
-                    <input
-                      type="range"
-                      min="1"
-                      max="5"
-                      value={newRating}
-                      onChange={(e) => setNewRating(Number(e.target.value))}
+      <div className="my-reviews">
+        <h2>Dina recensioner</h2>
+        {
+          error && <p className="errorMsg">{error}</p>
+        }
+        {
+          loading && <p className="loadingMsg">Laddar...</p>
+        }
+        <ul className="reviewlist">
+          {reviews.length > 0 ? (
+            reviews.map((review) => (
+              <li key={review._id}>
+                {/* Om vi är i redigeringsläge för den här recensionen, visa redigeringsformuläret */}
+                {editingReviewId === review._id ? (
+                  <div className="edit-form">
+                    <h4>Redigera recension</h4>
+                    <textarea
+                      rows={6}
+                      value={newReviewText}
+                      onChange={(e) => setNewReviewText(e.target.value)}
                     />
+                    <div>
+                      <label>Betyg</label>
+                      <input
+                        type="range"
+                        min="1"
+                        max="5"
+                        value={newRating}
+                        onChange={(e) => setNewRating(Number(e.target.value))}
+                      />
+                    </div>
+                    <div className="edit-buttons">
+                      <button onClick={() => handleSaveEdit(review._id)}>Spara</button>
+                      <button className="abortBtn" onClick={handleCancelEdit}>Avbryt</button>
+                    </div>
                   </div>
-                  <button onClick={() => handleSaveEdit(review._id)}>Spara</button>
-                  <button onClick={handleCancelEdit}>Avbryt</button>
-                </div>
-              ) : (
-                // Visar recensionen normalt
-                <ReviewItem review={review} />
-              )}
+                ) : (
+                  // Visar recensionen normalt
+                  <ReviewItem review={review} />
+                )}
 
-              {/* Redigeringsknapp */}
-              {user?._id === review.user._id && !editingReviewId && (
-                <>
-                  <button onClick={() => handleEditClick(review)}>Redigera</button>
-                  <button onClick={() => handleDeleteReview(review._id)}>Radera</button>
-                </>
-                
-              )}
-            </li>
-          ))
-        ) : (
-          <p>Du har inga recensioner ännu</p>
-        )}
-      </ul>
+                {/* Redigeringsknapp */}
+                {user?._id === review.user._id && !editingReviewId && (
+                  <div className="review-buttons">
+                    <button className="editBtn" onClick={() => handleEditClick(review)}>Redigera</button>
+                    <button className="deleteBtn" onClick={() => handleDeleteReview(review._id)}>Radera</button>
+                  </div>
+                  
+                )}
+              </li>
+            ))
+          ) : (
+            <p>Du har inga recensioner ännu</p>
+          )}
+        </ul>
+      </div>
     </div>
   );
 };

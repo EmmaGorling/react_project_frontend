@@ -25,7 +25,7 @@ a {
   text-decoration: none;
 }
 
-// Laddning
+// Loading
 .loadingMsg {
   font-size: 1.2rem;
   font-weight: bold;
@@ -35,7 +35,7 @@ a {
   width: fit-content;
 }
 
-// Felmeddelandem
+// Error messages
 .errorMsg {
   padding: 1em;
   font-weight: bold;
@@ -46,8 +46,16 @@ a {
   border-radius: 5px;
 }
 
+// Buttons
+button {
+  border-radius: 5px;
+  background-color: variables.$light-green;
+  border: 1px solid variables.$dark-green;
+  font-weight: 500;
+  line-height: 1.6em;
+}
 
-// Formulär
+// Forms
 form {
   width: 100%;
   max-width: 30ch;

@@ -56,6 +56,7 @@ const ReviewForm = ({ bookId, bookTitle, onReviewAdded } : { bookId: string, boo
                     }
                     <label htmlFor="reviewText">Kommentar</label>
                     <textarea 
+                    rows={6}
                     name="reviewText" 
                     id="reviewText"
                     required
