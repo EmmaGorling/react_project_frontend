@@ -48,6 +48,18 @@ a {
   border-radius: 5px;
 }
 
+// Success message
+.successMsg {
+  padding: 0.5em 1em;
+  font-weight: bold;
+  width: fit-content;
+  margin: 4em auto;
+  background-color: variables.$light-green;
+  border: 2px solid variables.$dark-green;
+  border-radius: 5px;
+  text-align: center;
+}
+
 // Buttons
 button {
   border-radius: 5px;
