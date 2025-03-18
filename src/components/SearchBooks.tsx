@@ -22,7 +22,7 @@ const SearchBooks = () => {
 
         try {
             const encodedQuery = encodeURIComponent(query);
-            const res = await fetch(`${BOOKS_URL}?q=${encodedQuery}&key=${apiKey}&fields=${QUERY_PARAMS.fields}`);
+            const res = await fetch(`${BOOKS_URL}?q=${encodedQuery}&key=${apiKey}&maxResults=20&fields=${QUERY_PARAMS.fields}`);
             const data = await res.json();
 
             if(data.items) {

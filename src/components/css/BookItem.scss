@@ -1,12 +1,13 @@
 .book-item {
-    margin: 1em 0.5em;
+    margin: 1em 0.5em 2em;
 
     article {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         height: 320px; 
-        width: 15ch;
+        width: 17ch;
+        overflow: hidden;
     }
 
     img {

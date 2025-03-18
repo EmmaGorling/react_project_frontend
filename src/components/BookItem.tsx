@@ -20,7 +20,7 @@ const BookItem = ({book} : {book : BookInterface}) => {
                         : book.volumeInfo.title
                     }
                 </h4>
-                <p>
+                <p><strong>Av:</strong><br></br>
                 {authors.map((author, index, authors) => (
                     <span key={author}>
                     {author}

@@ -5,16 +5,18 @@ header {
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px;
     font-weight: 500;
+    padding: 1em;
 
     ul {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        padding: 1em;
         margin: 0 auto;
         list-style: none;
+        width: 100%;
         max-width: 1500px;
+        padding: 0;
         
         img {
             width: 100%;
