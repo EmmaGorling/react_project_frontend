@@ -30,10 +30,10 @@ const ReviewList = ({ bookId, refresh } : { bookId: string, refresh: boolean }) 
     }
 
     return (
-        <div>
+        <div className="reviewlist">
             <h2>Recensioner</h2>
-            {error && <p>{error}</p>}
-            {loading && <p>Laddar recensioner...</p>}
+            {error && <p className="errorMsg">{error}</p>}
+            {loading && <p className="loadingMsg">Laddar recensioner...</p>}
 
             {reviews?.length > 0 ? (
                 <ul className="reviewlist">
