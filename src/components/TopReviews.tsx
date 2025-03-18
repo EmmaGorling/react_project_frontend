@@ -31,7 +31,7 @@ const TopReviews = () => {
             {loading && <p className="loadingMsg">Laddar...</p>}
             {error && <p className="errorMsg">{error}</p>}
             {   
-                topReviews.length > 0 ? (
+                topReviews.length > 0 && !error ? (
                     <ul className="reviewlist">
                         {topReviews.map((review) => (
                             <li  key={review._id}>
