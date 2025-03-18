@@ -9,16 +9,6 @@
     margin-top: 3em;
 }
 
-.edit-form {
-    textarea {
-        width: 100%;
-        border: 2px solid variables.$dark-green;
-        border-radius: 5px;
-        display: block;
-        margin: 1em auto;
-    }
-}
-
 .review-buttons, .edit-buttons {
     width: 100%;
     max-width: 17ch;

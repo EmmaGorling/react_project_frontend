@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { NO_THUMBNAIL } from '../../config';
 import { BookInterface } from '../types/BookInterface'
 import { Link } from 'react-router-dom';

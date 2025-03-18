@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useAuth } from '../context/authContext';
 const apiUrl = import.meta.env.VITE_API_URL;
 
+import './css/LikeDislikeButton.scss';
+
 interface LikeDislikeProps {
     reviewId: string;
     initialLikes: number;
