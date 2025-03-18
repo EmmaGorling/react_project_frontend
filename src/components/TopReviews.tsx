@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { ReviewInterface } from "../types/ReviewInterface";
 import { ReviewItem } from "./ReviewItem";
 const apiUrl = import.meta.env.VITE_API_URL;
