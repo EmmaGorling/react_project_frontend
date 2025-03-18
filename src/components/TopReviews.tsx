@@ -15,6 +15,7 @@ const TopReviews = () => {
 
     const fetchTopReviews = async () => {
         try {
+            setError("");
             const res = await fetch(`${apiUrl}/reviews/top`);
             const data = await res.json();
             setTopReviews(data);
