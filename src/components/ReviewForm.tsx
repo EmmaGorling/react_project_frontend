@@ -1,7 +1,7 @@
 import { useState } from "react"
 const apiUrl = import.meta.env.VITE_API_URL;
 
-const ReviewForm = ({ bookId } : { bookId: string}) => {
+const ReviewForm = ({ bookId, bookTitle, onReviewAdded } : { bookId: string, bookTitle: string, onReviewAdded: () => void }) => {
 
     const [reviewText, setReviewText] = useState("");
     const [rating, setRating] = useState(1);
@@ -23,7 +23,7 @@ const ReviewForm = ({ bookId } : { bookId: string}) => {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ bookId, reviewText, rating })
+                body: JSON.stringify({ bookId, bookTitle, reviewText, rating })
             });
 
             if(!res.ok) {
@@ -34,6 +34,9 @@ const ReviewForm = ({ bookId } : { bookId: string}) => {
             setError("");
             setReviewText("");
             setRating(1);
+
+            // Trigger update
+            onReviewAdded();
         } catch (error) {
             setError("Något gick fel när recensionen skickades")
         }

@@ -31,7 +31,6 @@ const SearchBooks = () => {
                 setBooks([]);
                 setError("Inga resultat hittades");
             }
-            console.log(encodedQuery);
         } catch (error) {
             setError("Något gick fel vid hämtning av data");
         } finally {

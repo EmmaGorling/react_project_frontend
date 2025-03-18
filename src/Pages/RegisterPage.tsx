@@ -28,6 +28,12 @@ const RegisterPage = () => {
                 const data = await res.json();
                 setError(data.message || "Något gick fel");
             } else {
+                // Reset form
+                setEmail("");
+                setFirstName("");
+                setLastName("");
+                setPassword("");
+                // successmessage
                 setSuccess("Ditt konto har skapats, du skickas nu vidare till sidan för inloggning");
 
                 // Wait 6 seconds before navigate

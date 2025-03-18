@@ -1,9 +1,9 @@
-import RandomBooks from "../components/RandomBooks"
 import SearchBooks from "../components/SearchBooks"
 import { useAuth } from "../context/authContext"
 import oldBook from "../assets/old_book.jpg"
 
 import './css/Homepage.scss';
+import TopReviews from "../components/TopReviews";
 
 const HomePage = () => {
     const {user} = useAuth();
@@ -28,7 +28,7 @@ const HomePage = () => {
                     }
             </section>
             <SearchBooks />
-            <RandomBooks />
+            <TopReviews />
         </div>
     )
 }

@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react"
 import { ReviewInterface } from "../types/ReviewInterface";
-import LikeDislikeButtons from "./LikeDislikeButtons";
-import { useAuth } from "../context/authContext";
+import { ReviewItem } from "./ReviewItem";
 const apiUrl = import.meta.env.VITE_API_URL;
 
-const ReviewList = ({ bookId } : {bookId: string}) => {
-    const { user } = useAuth();
+const ReviewList = ({ bookId, refresh } : { bookId: string, refresh: boolean }) => {
 
     const [reviews, setReviews] = useState<ReviewInterface[]>([]);
     const [loading, setLoading] = useState(false);
@@ -13,7 +11,7 @@ const ReviewList = ({ bookId } : {bookId: string}) => {
 
     useEffect(() => {
         getReviews();
-    }, [bookId]);
+    }, [bookId, refresh]);
 
     const getReviews = async () => {
         try {
@@ -41,21 +39,7 @@ const ReviewList = ({ bookId } : {bookId: string}) => {
                 <ul>
                     {reviews.map((review) => (
                         <li key={review._id}>
-                            <p><strong>{review.user?.firstName} {review.user?.lastName}</strong></p>
-                            <p>{review.reviewText}</p>
-                            <span>
-                                <strong>Betyg: </strong> 
-                                <span className="stars">
-                                    {"★".repeat(review.rating)}{"☆".repeat(5 - review.rating)}
-                                </span>
-                            </span>
-                            <LikeDislikeButtons 
-                                reviewId={review._id}
-                                initialLikes={review.likes?.length ?? 0}
-                                initialDislikes={review.dislikes?.length ?? 0}
-                                userHasLiked={user ? review.likes?.includes(user._id) : false} 
-                                userHasDisliked={user ? review.dislikes?.includes(user._id) : false}
-                            />
+                            <ReviewItem  review={review} />
                         </li>
                     ))}
                 </ul>

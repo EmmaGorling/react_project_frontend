@@ -15,6 +15,8 @@ const BookDetailPage = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
+    const [refreshReviews, setRefreshReviews] = useState(false);
+
     useEffect(() => {
         fetchBookDetails();
     }, [id]);
@@ -34,6 +36,11 @@ const BookDetailPage = () => {
         } finally {
             setLoading(false);
         }
+    };
+
+    // Refresh reviews
+    const handleReviewAdded = () => {
+        setRefreshReviews((prev) => !prev); // 🔄 Trigga uppdatering av recensioner
     };
 
     const sanitizedDescription = book?.volumeInfo?.description
@@ -72,14 +79,14 @@ const BookDetailPage = () => {
             }
             
             {
-                user && id && (
+                user && id && book && (
                     <div>
-                        <ReviewForm bookId={id} />
+                        <ReviewForm bookId={id} bookTitle={book.volumeInfo.title} onReviewAdded={handleReviewAdded} />
                     </div>
                 )
             }
             {
-                id && <ReviewList bookId={id} />
+                id && <ReviewList bookId={id} refresh={refreshReviews} />
             }
         </div>
     )
