@@ -69,6 +69,10 @@ button {
   line-height: 1.6em;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 // Forms
 form {
   width: 100%;
