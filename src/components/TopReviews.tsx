@@ -28,8 +28,8 @@ const TopReviews = () => {
     return (
         <section className="top-reviews">
             <h2>Topprankade recensioner ⭐⭐⭐⭐⭐</h2>
-            {loading && <p>Laddar...</p>}
-            {error && <p>{error}</p>}
+            {loading && <p className="loadingMsg">Laddar...</p>}
+            {error && <p className="errorMsg">{error}</p>}
             {
                 Array.isArray(topReviews) ? (
                     <ul className="reviewlist">
