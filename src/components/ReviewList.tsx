@@ -31,7 +31,7 @@ const ReviewList = ({ bookId, refresh } : { bookId: string, refresh: boolean }) 
 
     return (
         <div>
-            <h3>Recensioner</h3>
+            <h2>Recensioner</h2>
             {error && <p>{error}</p>}
             {loading && <p>Laddar recensioner...</p>}
 

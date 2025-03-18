@@ -66,7 +66,7 @@ const ReviewForm = ({ bookId, bookTitle, onReviewAdded } : { bookId: string, boo
                     </textarea>
                 </div>
 
-                <div>
+                <div className="range">
                     <label htmlFor="rating">Betyg (1-5)</label>
                     <input 
                         type="range" 
@@ -78,7 +78,7 @@ const ReviewForm = ({ bookId, bookTitle, onReviewAdded } : { bookId: string, boo
                     />
                 </div>
 
-                <button type="submit">Skicka recension</button>
+                <button type="submit">Publicera</button>
             </form>
         </div>
     )

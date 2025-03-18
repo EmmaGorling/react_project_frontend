@@ -129,8 +129,8 @@ const ProfilePage = () => {
                       value={newReviewText}
                       onChange={(e) => setNewReviewText(e.target.value)}
                     />
-                    <div>
-                      <label>Betyg</label>
+                    <div className="range">
+                      <label>Betyg (1-5) </label>
                       <input
                         type="range"
                         min="1"

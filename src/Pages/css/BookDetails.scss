@@ -1,0 +1,38 @@
+.book {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    img {
+        display: block;
+        margin: 1em auto 2em;
+        width: auto;
+        flex-shrink: 0;
+    }
+    .author {
+        width: fit-content;
+        max-width: 30ch;
+        margin: 0 auto;
+    }
+    .description {
+        width: 90%;
+        max-width: 70ch;
+        margin: auto;
+        padding: 1em;
+    }
+}
+
+
+@media (min-width: 800px) {
+    .flex {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 400px;
+        margin: auto;
+        img {
+            margin: 0;
+        }
+        
+    }
+    
+}

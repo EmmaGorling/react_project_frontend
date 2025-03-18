@@ -58,14 +58,16 @@ button {
 // Forms
 form {
   width: 100%;
-  max-width: 30ch;
+  max-width: 40ch;
   margin: 3em auto;
   .form-section-center {
     display: flex;
     flex-direction: column;
     text-align: center;
   }
-  
+  label {
+    font-weight: 500;
+  }
   
   input[type="text"],
   input[type="password"],
@@ -76,6 +78,13 @@ form {
     border-radius: 5px;
     display: block;
     margin: 1em auto;
+  }
+  .range {
+    width: 90%;
+    max-width: 25ch;
+    margin: 2em auto;
+    display: flex;
+    justify-content: space-between;
   }
 
   button {
