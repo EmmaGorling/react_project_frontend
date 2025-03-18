@@ -37,7 +37,7 @@ const LoginPage = () => {
             <div className="login-form">
                 <form onSubmit={handleSubmit}>
                     {
-                        error && <p>{error}</p>
+                        error && <p className="errorMsg">{error}</p>
                     }
                     <div className='form-section-left'>
                         <label htmlFor="email">E-post</label>
