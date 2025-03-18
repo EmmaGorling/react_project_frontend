@@ -30,8 +30,9 @@ const TopReviews = () => {
             <h2>Topprankade recensioner ⭐⭐⭐⭐⭐</h2>
             {loading && <p className="loadingMsg">Laddar...</p>}
             {error && <p className="errorMsg">{error}</p>}
+            { topReviews.length === 0 && !loading && <p className="successMsg">Inga recensioner hittade</p>}
             {   
-                topReviews.length > 0 ? (
+                topReviews.length > 0 && (
                     <ul className="reviewlist">
                         {topReviews.map((review) => (
                             <li  key={review._id}>
@@ -39,7 +40,7 @@ const TopReviews = () => {
                             </li>
                         ))}
                     </ul>
-                ) : <p className="errorMsg">Inga recensioner hittade</p>
+                ) 
             }
         </section>
     )
