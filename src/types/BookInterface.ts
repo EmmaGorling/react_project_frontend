@@ -5,8 +5,11 @@ export interface BookInterface {
         subtitle?: string,
         authors: string[],
         description: string,
-        imageLinks: {
+        imageLinks?: {  
             thumbnail: string
-        }
+        },
+        pageCount?: number,         
+        publishedDate?: string,   
+        categories?: string[]
     }
 }

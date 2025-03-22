@@ -30,7 +30,7 @@ const TopReviews = () => {
             <h2>Topprankade recensioner ⭐⭐⭐⭐⭐</h2>
             {loading && <p className="loadingMsg">Laddar...</p>}
             {error && <p className="errorMsg">{error}</p>}
-            { topReviews.length === 0 && !loading && <p className="successMsg">Inga recensioner hittade</p>}
+            { topReviews.length === 0 && !loading && !error && <p className="successMsg">Inga recensioner hittade</p>}
             {   
                 topReviews.length > 0 && (
                     <ul className="reviewlist">

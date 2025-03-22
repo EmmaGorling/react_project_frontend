@@ -45,7 +45,7 @@ const BookDetailPage = () => {
 
     // Refresh reviews
     const handleReviewAdded = () => {
-        setRefreshReviews((prev) => !prev); // 🔄 Trigga uppdatering av recensioner
+        setRefreshReviews((prev) => !prev); 
     };
 
     const sanitizedDescription = book?.volumeInfo?.description
@@ -73,15 +73,26 @@ const BookDetailPage = () => {
                             <div className='flex'>
                                 <img src={thumbnail} alt={book.volumeInfo.title} title={book.volumeInfo.title} />
 
-                                <p className='author'>
-                                    <strong>Författare: </strong>
-                                        {authors.map((author, index, authors) => (
-                                            <span key={author}>
-                                            {author}
-                                            {index < authors.length - 1 && ", "}
-                                            </span>
-                                        ))}
-                                </p>
+                                <div className='info'>
+                                    <p>
+                                        <strong>Författare: </strong>
+                                            {authors.map((author, index, authors) => (
+                                                <span key={author}>
+                                                {author}
+                                                {index < authors.length - 1 && ", "}
+                                                </span>
+                                            ))}
+                                    </p>
+                                    <p><strong>Antal sidor: </strong>{book.volumeInfo.pageCount}</p>
+                                    <p><strong>Publiceringsdatum: </strong>{book.volumeInfo.publishedDate}</p>
+                                    <p><strong>Kategorier: </strong>{book.volumeInfo.categories?.map((category, index, categories) => (
+                                        <span key={category}>
+                                        {category}
+                                        {index < categories.length - 1 && ", "}
+                                        </span>
+                                    ))}</p>
+                                </div>
+                                
                             </div>
                             <div className='description'>
                                 <h2>Beskrivning</h2>

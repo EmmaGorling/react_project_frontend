@@ -1,7 +1,7 @@
 const BOOKS_URL = "https://www.googleapis.com/books/v1/volumes";
 
 const QUERY_PARAMS = {
-    fields: 'items(id,volumeInfo/title,volumeInfo/subtitle,volumeInfo/description,volumeInfo/authors,volumeInfo/imageLinks/thumbnail)'
+    fields: 'items(id,volumeInfo/title,volumeInfo/subtitle,volumeInfo/description,volumeInfo/authors,volumeInfo/imageLinks/thumbnail,volumeInfo/pageCount,volumeInfo/publishedDate,volumeInfo/categories)'
 }
 
 const NO_THUMBNAIL = "http://books.google.com/books/content?id=FOHtDwAAQ…=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
