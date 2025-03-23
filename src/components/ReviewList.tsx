@@ -38,8 +38,7 @@ const ReviewList = ({ bookId, refresh } : { bookId: string, refresh: boolean }) 
             {
                 reviews.length === 0 && !loading && <p className="successMsg">Det finns inga recensioner för den här boken ännu.</p>
             }
-            {
-            reviews?.length > 0 && (
+            { reviews?.length > 0 && (
                 <ul className="reviewlist">
                     {reviews.map((review) => (
                         <li key={review._id}>
@@ -47,8 +46,7 @@ const ReviewList = ({ bookId, refresh } : { bookId: string, refresh: boolean }) 
                         </li>
                     ))}
                 </ul>
-                ) 
-            }
+                )}
         </div>
     )
 }

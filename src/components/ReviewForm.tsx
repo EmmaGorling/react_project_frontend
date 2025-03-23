@@ -49,10 +49,10 @@ const ReviewForm = ({ bookId, bookTitle, onReviewAdded } : { bookId: string, boo
             <form onSubmit={handleSubmit}>
                 <div>
                     {
-                        error && <p>{error}</p>
+                        error && <p className="errorMsg">{error}</p>
                     }
                     {
-                        success && <p>Din recension har sparats!</p>
+                        success && <p className="successMsg">Din recension har sparats!</p>
                     }
                     <label htmlFor="reviewText">Kommentar</label>
                     <textarea 

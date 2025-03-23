@@ -5,7 +5,7 @@ const apiUrl = import.meta.env.VITE_API_URL;
 
 const TopReviews = () => {
     const [topReviews, setTopReviews] = useState<ReviewInterface[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
     useEffect(() => {
@@ -14,6 +14,7 @@ const TopReviews = () => {
 
     const fetchTopReviews = async () => {
         try {
+            setLoading(true);
             setError("");
             const res = await fetch(`${apiUrl}/reviews/top`);
             const data = await res.json();

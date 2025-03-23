@@ -14,7 +14,7 @@ const Header = () => {
             
 
             <ul>
-                <li><Link to="/"><img src={logo} alt="" /></Link></li>
+                <li><Link to="/"><img src={logo} alt="Logotyp" /></Link></li>
                 <div className="menu-items">
                 {
                     user && <li><NavLink to='/profile'>Min sida</NavLink></li>

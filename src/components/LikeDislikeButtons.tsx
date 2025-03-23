@@ -39,7 +39,6 @@ const LikeDislikeButtons: React.FC<LikeDislikeProps> = ({
                 credentials: 'include'
             });
             if (liked) {
-                // Om användaren redan har gillat, ta bort gillamarkeringen
                 setLikes(prev => prev - 1);
                 setLiked(false);
             } else {
