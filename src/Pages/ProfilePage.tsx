@@ -90,7 +90,7 @@ const ProfilePage = () => {
         {error && <p className="errorMsg">{error}</p>}
         {loading && <p className="loadingMsg">Laddar...</p>}
         <ul className="reviewlist">
-          {reviews.length > 0 ? (
+          {reviews.length > 0 && (
             reviews.map((review) => (
               <li key={review._id}>
                 {editingReviewId === review._id ? (
@@ -116,9 +116,10 @@ const ProfilePage = () => {
                 )}
               </li>
             ))
-          ) : (
-            <p className="successMsg">Du har inga recensioner ännu</p>
           )}
+          {
+            reviews.length === 0 && !loading && <p className="successMsg">Du har inga recensioner ännu</p>
+          }
         </ul>
       </div>
     </div>
