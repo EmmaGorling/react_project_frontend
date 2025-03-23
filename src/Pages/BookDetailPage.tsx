@@ -14,7 +14,7 @@ const BookDetailPage = () => {
     const { user } = useAuth();
     const { id } = useParams<{ id: string }>(); 
     const [book, setBook] = useState<BookInterface | null>(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
     const thumbnail = book?.volumeInfo.imageLinks?.thumbnail || NO_THUMBNAIL;
@@ -28,6 +28,7 @@ const BookDetailPage = () => {
 
     const fetchBookDetails = async () => {
         try {
+            setLoading(true);
             const res = await fetch(`${BOOKS_URL}/${id}?key=${apiKey}`);
             const data = await res.json();
 
