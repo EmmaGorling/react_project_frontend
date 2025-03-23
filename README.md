@@ -1,54 +1,33 @@
-# React + TypeScript + Vite
+# React-baserad bok-webbappliaktion
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Detta är ett React-baserat projekt för att kunna söka efter böcker, samt hantera recensioner av böcker. Projektet består av en frontend utvecklad med React, och en backend som hanterar användare och recensioner. Systemet låter användare skapa, läsa, uppdatera och ta bort recensioner, samt gilla och ogilla recensioner. Användarna kan även logga in och skapa konto.
 
-Currently, two official plugins are available:
+## Backend
+Repo: https://github.com/EmmaGorling/projekt_fordjupad_frontend_API.git
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Funktioner
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Användarhantering
+- Användare kan skapa ett konto genom att registrera sig med e-postadress och lösenord.
+- Användare kan logga in och logga ut.
+- Alla användare kan se sina egna recensioner och gilla/ogilla recensioner.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Recensioner
+- Användare kan skapa recensioner för böcker genom att ange titel, betyg (1-5) och själva recensionstexten.
+- Recensioner kan uppdateras och tas bort av den användare som skapat recensionen.
+- Användare kan gilla eller ogilla recensioner.
+- Användare kan visa recensioner för specifika böcker och även se recensionerna som gett högst betyg.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Struktur
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Frontend (React)
+- Användargränssnittet är byggt med React och använder React Router för navigering.
+- Komponenter är organiserade i olika mappar för att separera logik, presentation och styling.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### Backend (Node.js och Express)
+- Backend är byggt med Node.js och Hapi.js.
+- Mongoose används för att interagera med MongoDB-databasen.
+- Backend tillhandahåller REST API-endpoints för att hantera användare och recensioner.
+
+ 
