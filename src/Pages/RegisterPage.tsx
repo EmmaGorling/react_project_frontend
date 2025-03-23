@@ -24,8 +24,10 @@ const RegisterPage = () => {
                 body: JSON.stringify({email, firstName, lastName, password})
             });
 
+            const data = await res.json();
+
             if (!res.ok) {
-                const data = await res.json();
+                
                 setError(data.message || "Något gick fel");
             } else {
                 // Reset form
