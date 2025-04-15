@@ -27,7 +27,7 @@ const LoginPage = () => {
             return;
         }
         if (email.length < 1 || password.length < 1) {
-            setError("Ange en e-post-adress och lösenord")
+            setError("Ange en e-postadress och lösenord")
             return;
         }
 
