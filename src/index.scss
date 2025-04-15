@@ -39,13 +39,11 @@ a {
 
 // Error messages
 .errorMsg {
-  padding: 1em;
-  font-weight: bold;
-  width: fit-content;
-  margin: 4em auto;
-  background-color: variables.$error-bg;
-  border: 2px solid variables.$error-border;
-  border-radius: 5px;
+  color: red;
+    font-weight: 500;
+    font-size: 0.9em;
+    text-align: center;
+    margin: auto;
 }
 
 // Success message
@@ -67,10 +65,12 @@ button {
   border: 1px solid variables.$dark-green;
   font-weight: 500;
   line-height: 1.6em;
+  transition: filter 0.2s ease;
 }
 
 button:hover {
   cursor: pointer;
+  filter: brightness(80%);
 }
 
 // Forms

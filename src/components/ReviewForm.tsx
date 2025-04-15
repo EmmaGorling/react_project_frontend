@@ -11,8 +11,10 @@ const ReviewForm = ({ bookId, bookTitle, onReviewAdded } : { bookId: string, boo
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if(!reviewText.trim()) {
-            setError("Recensionstexten kan inte vara tom")
+        setError("");
+
+        if (reviewText.length < 5) {
+            setError("Recensionstexten får inte vara kortare än 5 tecken");
             return;
         }
 
@@ -48,18 +50,12 @@ const ReviewForm = ({ bookId, bookTitle, onReviewAdded } : { bookId: string, boo
 
             <form onSubmit={handleSubmit}>
                 <div>
-                    {
-                        error && <p className="errorMsg">{error}</p>
-                    }
-                    {
-                        success && <p className="successMsg">Din recension har sparats!</p>
-                    }
+                    
                     <label htmlFor="reviewText">Kommentar</label>
                     <textarea 
                     rows={6}
                     name="reviewText" 
                     id="reviewText"
-                    required
                     value={reviewText}
                     onChange={(e) => setReviewText(e.target.value)}
                     >
@@ -77,8 +73,15 @@ const ReviewForm = ({ bookId, bookTitle, onReviewAdded } : { bookId: string, boo
                         onChange={(e) => setRating(Number(e.target.value))}
                     />
                 </div>
+                {
+                    error && <p className="errorMsg">{error}</p>
+                }
+                {
+                    success && <p className="successMsg">Din recension har sparats!</p>
+                }
 
                 <button type="submit">Publicera</button>
+                
             </form>
         </div>
     )

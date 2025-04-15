@@ -9,16 +9,24 @@ interface ReviewEditFormProps {
 
 const ReviewEditForm: React.FC<ReviewEditFormProps> = ({ review, onSave, onCancel }) => {
     const [reviewText, setReviewText] = useState(review.reviewText);
+    const [error, setError] = useState("");
     const [rating, setRating] = useState(review.rating);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        setError("");
+
+        if (reviewText.length < 5) {
+            setError("Recensionstexten får inte vara kortare än 5 tecken");
+            return;
+        }
         onSave(review._id, reviewText, rating);
     };
 
     return (
         <form className="edit-form" onSubmit={handleSubmit}>
         <h4>Redigera recension</h4>
+        
         <textarea
             rows={6}
             value={reviewText}
@@ -35,6 +43,7 @@ const ReviewEditForm: React.FC<ReviewEditFormProps> = ({ review, onSave, onCance
             onChange={(e) => setRating(Number(e.target.value))}
             />
         </div>
+        { error && <span className="label-error">{error}</span>}
         <div className="edit-buttons">
             <button type="submit">Spara</button>
             <button type="button" className="abortBtn" onClick={onCancel}>
