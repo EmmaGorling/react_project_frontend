@@ -32,6 +32,12 @@ header {
             li {
                 margin: auto 1em;
             }
+            a {
+                transition: font-size 0.2s linear;
+            }
+            a:hover {
+                font-size: 1.05em;
+            }
         }
     }
 }
